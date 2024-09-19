@@ -7,13 +7,16 @@ Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
 
 * Matheus Magalhães Rossi.
 * Enzo Moraes martini.
-* Filipe Barcelos.
-* Gabriel f
+* Filipe Carvalho Barcelos.
+* Gabriel furst.
+* Matheus Ricardo Morais de Souza.
 
 ## Professores responsáveis
 
-* Nome completo do professor 1
-* Nome completo do professor 2
+* Hayala Nepomuceno Curto.
+* Ilo Amy Saldanha Rivero.
+* Rommel Vieira Carneiro.
+* Walisson Ferreira de Carvalho.
 
 
 
