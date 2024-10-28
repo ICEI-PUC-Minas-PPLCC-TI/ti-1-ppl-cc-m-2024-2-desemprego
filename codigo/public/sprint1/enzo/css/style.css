@@ -1,3 +1,6 @@
+body {
+  background-color: lightblue;
+}
 label {
   font-weight: bolder;
 }
@@ -12,9 +15,10 @@ label {
   color:  lightskyblue !important;
   opacity:  3;
 }
-h1 {
+h1 {padding-top: 20px;
    text-align: center;
 }
+
 #msg {
    height: 60px;
 }

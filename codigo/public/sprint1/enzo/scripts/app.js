@@ -12,7 +12,7 @@
 // Data: 03/10/2023
 
 // URL da API JSONServer - Substitua pela URL correta da sua API
-const apiUrl = '/contatos';
+const apiUrl = 'http://localhost:3000/usuarios';
 
 function displayMessage(mensagem) {
     msg = document.getElementById('msg');
@@ -32,24 +32,33 @@ function readContato(processaDados) {
 }
 
 function createContato(contato, refreshFunction) {
-    fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(contato),
-    })
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            // Encontrar o maior ID atual
+            const maxId = data.reduce((max, contato) => Math.max(max, contato.id), 0);
+            contato.id = maxId + 1; // Atribuir um novo ID sequencial
+
+            // Adicionar o novo contato
+            return fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(contato),
+            });
+        })
         .then(response => response.json())
         .then(data => {
             displayMessage("Contato inserido com sucesso");
-            if (refreshFunction)
-                refreshFunction();
+            if (refreshFunction) refreshFunction();
         })
         .catch(error => {
             console.error('Erro ao inserir contato via API JSONServer:', error);
             displayMessage("Erro ao inserir contato");
         });
 }
+
 
 function updateContato(id, contato, refreshFunction) {
     fetch(`${apiUrl}/${id}`, {

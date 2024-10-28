@@ -49,16 +49,14 @@
                     <input type="text" class="form-control" id="inputCidade" placeholder="Informe a cidade do contato" >
                 </div>
                 <div class="col-sm-6">
-                    <!--
                     <label for="inputCategoria">Categoria</label>
-                    <select name="contatos" class="form-control" id="inputCategoria" required placeholder="Informe a categoria do contato">
+                    <select class="form-control" id="inputCategoria" required>
+                        <option value="" disabled selected>Selecione a categoria</option>
                         <option value="desempregado">Desempregado</option>
                         <option value="empregador">Empregador</option>
-                      </select>
-                      !-->
-                    <label for="inputCategoria">Categoria</label>
-                    <input type="text" class="form-control" id="inputCategoria" required placeholder="Informe a categoria do contato">
+                    </select>
                 </div>
+                
             </div>
             <div class="form-group row">    
                 <div class="col-sm-12">
@@ -76,8 +74,8 @@
                     <input type="button" class="btn btn-success" id="btnInsert" value="Inserir">
                     <input type="button" class="btn btn-warning" id="btnUpdate" value="Alterar">
                     <input type="button" class="btn btn-danger" id="btnDelete" value="Excluir">
-                    <input type="button" class="btn btn-secondary" id="btnClear" value="Limpar Form">
-                    <a href="search.html"><input type="button" class="btn btn-warning" id="btnClear" value="Pesquisar Contatos"></a>
+                    <input type="button" class="btn btn-secondary" id="btnClear" value="Limpar Tudo">
+                    <a href="search.html"><input type="button" class="btn btn-warning" id="btnClear" value="Buscar"></a>
                 </div>
             </div>
         </form>
