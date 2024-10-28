@@ -15,13 +15,121 @@ label {
   color:  lightskyblue !important;
   opacity:  3;
 }
-h1 {padding-top: 20px;
+h1 {
+   padding-top: 20px;
    text-align: center;
 }
-
+#grid-contatos{
+   margin-top: 17px;
+}
 #msg {
    height: 60px;
 }
 #grid-contatos tbody {
    cursor: pointer;
+}
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fcf4c5;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+}
+
+.form-group:last-child input[type="button"] {
+  width: 120px;
+  margin: 5px;
+}
+
+.form-group:last-child a input[type="button"] {
+  width: 120px;
+  margin: 5px;
+}
+
+.form-group:last-child {
+  text-align: center;
+}
+
+.form-group:last-child a input[type="button"] {
+  width: 240px; 
+  background-color: purple;
+  border: 1px solid black;
+  color: white;
+  margin: 5px;
+}
+
+#grid-contatos {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tag-dropdown {
+  position: relative;
+}
+
+.tag-list {
+  display: none; /* Esconde a lista de tags inicialmente */
+  border: 1px solid #ccc;
+  background-color: white;
+  position: absolute;
+  z-index: 1;
+  max-height: 150px;
+  overflow-y: auto;
+  padding: 10px;
+  width: 100%;
+}
+
+.tag-list label {
+  display: block; /* Cada tag em uma nova linha */
+}
+
+.tag-list.show {
+  display: block; /* Mostra a lista quando adiciona a classe 'show' */
+}
+
+.tag-button {
+  background-color: #42c1bf; /* Cor do botão de seleção de tags */
+  color: black;
+  border: 2px solid black;
+  border: none;
+  border-radius: 17px;
+  width: 200px;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 10px; /* Espaçamento acima do botão de tags */
+}
+
+.tags {
+  margin-top: 15px; /* Espaço acima das tags */
+}
+
+.tags label {
+  display: flex; /* Alinhamento flexível */
+  align-items: center; /* Centraliza verticalmente */
+  margin-right: 15px; /* Espaçamento entre as tags */
+  cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+}
+
+.tags input[type="checkbox"] {
+  margin-right: 5px; /* Espaçamento entre o checkbox e o texto */
+  width: 20px; /* Largura do checkbox */
+  height: 20px; /* Altura do checkbox */
+}
+
+/* Estilo adicional para os checkboxes */
+.tags input[type="checkbox"] {
+  accent-color: purple; /* Cor do checkbox */
 }
