@@ -1,22 +1,11 @@
-// Trabalho Interdisciplinar 1 - Aplicações Web
-//
-// Esse módulo realiza as operações de CRUD a partir de uma API baseada no JSONServer
-// O servidor JSONServer fica hospedado na seguinte URL
-// https://jsonserver.rommelpuc.repl.co/contatos
-//
-// Para fazer o seu servidor, acesse o projeto do JSONServer no Replit, faça o 
-// fork do projeto e altere o arquivo db.json para incluir os dados do seu projeto.
-// URL Projeto JSONServer: https://replit.com/@rommelpuc/JSONServer
-//
-// Autor: Rommel Vieira Carneiro
-// Data: 03/10/2023
-
-// URL da API JSONServer - Substitua pela URL correta da sua API
 const apiUrl = 'http://localhost:3000/usuarios';
+let editingId = null;
 
 function displayMessage(mensagem) {
-    msg = document.getElementById('msg');
-    msg.innerHTML = '<div class="alert alert-warning">' + mensagem + '</div>';
+    const msg = document.getElementById('msg');
+    msg.innerHTML = mensagem;
+    msg.style.display = 'block';
+    setTimeout(() => msg.style.display = 'none', 5000);
 }
 
 function readContato(processaDados) {
@@ -35,11 +24,9 @@ function createContato(contato, refreshFunction) {
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-            // Encontrar o maior ID atual
             const maxId = data.reduce((max, contato) => Math.max(max, contato.id), 0);
-            contato.id = maxId + 1; // Atribuir um novo ID sequencial
+            contato.id = maxId + 1;
 
-            // Adicionar o novo contato
             return fetch(apiUrl, {
                 method: 'POST',
                 headers: {
@@ -59,7 +46,6 @@ function createContato(contato, refreshFunction) {
         });
 }
 
-
 function updateContato(id, contato, refreshFunction) {
     fetch(`${apiUrl}/${id}`, {
         method: 'PUT',
@@ -71,8 +57,7 @@ function updateContato(id, contato, refreshFunction) {
         .then(response => response.json())
         .then(data => {
             displayMessage("Contato alterado com sucesso");
-            if (refreshFunction)
-                refreshFunction();
+            if (refreshFunction) refreshFunction();
         })
         .catch(error => {
             console.error('Erro ao atualizar contato via API JSONServer:', error);
@@ -87,11 +72,159 @@ function deleteContato(id, refreshFunction) {
         .then(response => response.json())
         .then(data => {
             displayMessage("Contato removido com sucesso");
-            if (refreshFunction)
-                refreshFunction();
+            if (refreshFunction) refreshFunction();
         })
         .catch(error => {
             console.error('Erro ao remover contato via API JSONServer:', error);
             displayMessage("Erro ao remover contato");
         });
 }
+
+function exibeContatos() {
+    const tableContatos = document.getElementById("table-contatos");
+    tableContatos.innerHTML = ""; // Limpa a tabela antes de exibir novos dados
+
+    // Faz uma requisição GET ao servidor JSON para obter os contatos
+    readContato(dados => {
+        dados.forEach(contato => {
+            tableContatos.innerHTML += `
+                <tr>
+                    <td scope="row">${contato.id}</td>
+                    <td>${contato.nome}</td>
+                    <td>${contato.nascimento}</td>
+                    <td>${contato.email}</td>
+                    <td>${contato.cidade}</td>
+                    <td>${contato.categoria}</td>
+                    <td>${contato.website}</td>
+                    <td>${contato.tags ? contato.tags.length : 0}</td> <!-- Mostrar quantidade de tags -->
+                    <td>
+                        <button class="btn btn-warning btn-sm" onclick="editarContato(${contato.id})">Editar</button>
+                        <button class="btn btn-danger btn-sm" onclick="excluirContato(${contato.id})">Excluir</button>
+                    </td>
+                </tr>`;
+        });
+    });
+}
+
+function contarTagsSelecionadas(tags) {
+    if (!tags || tags.length === 0) return 0; // Retorna 0 se não houver tags
+    return tags.length; // Retorna a quantidade de tags
+}
+
+function prepareEdit(id) {
+    editingId = id;
+    fetch(`${apiUrl}/${id}`)
+        .then(response => response.json())
+        .then(contato => {
+            document.getElementById('inputNome').value = contato.nome;
+            document.getElementById('inputNascimento').value = contato.nascimento;
+            document.getElementById('inputEmail').value = contato.email;
+            document.getElementById('inputSite').value = contato.website;
+            document.getElementById('inputCidade').value = contato.cidade;
+            document.getElementById('inputCategoria').value = contato.categoria;
+
+            // Selecionar tags
+            const checkboxes = document.querySelectorAll('.tag-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = contato.tags.includes(checkbox.value);
+            });
+
+            document.getElementById('btnInsert').style.display = 'none';
+            document.getElementById('btnUpdate').style.display = 'inline-block';
+            document.getElementById('btnDelete').style.display = 'inline-block';
+        })
+        .catch(error => {
+            console.error('Erro ao buscar contato para edição:', error);
+            displayMessage("Erro ao buscar contato");
+        });
+}
+
+function editarContato(id) {
+    readContato(data => {
+        const contato = data.find(c => c.id === id);
+        if (contato) {
+            // Preencher os campos do formulário com os dados do contato
+            document.getElementById('inputNome').value = contato.nome;
+            document.getElementById('inputNascimento').value = contato.nascimento;
+            document.getElementById('inputEmail').value = contato.email;
+            document.getElementById('inputCidade').value = contato.cidade;
+            document.getElementById('inputCategoria').value = contato.categoria;
+            document.getElementById('inputSite').value = contato.website;
+
+            // Configurar um atributo data no formulário para guardar o ID do contato que está sendo editado
+            const formContato = document.getElementById("form-contato");
+            formContato.dataset.editarId = contato.id; // Armazenar o ID para saber qual contato editar
+        }
+    });
+}
+
+
+function excluirContato(id) {
+    if (confirm("Você tem certeza que deseja excluir este contato?")) {
+        deleteContato(id, exibeContatos);
+    }
+}
+
+
+function confirmDelete(id) {
+    if (confirm("Tem certeza que deseja excluir este contato?")) {
+        deleteContato(id, exibeContatos);
+    }
+}
+
+function init() {
+    const formContato = document.getElementById('form-contato');
+
+    document.getElementById("btnInsert").addEventListener('click', function () {
+        const tagsSelecionadas = Array.from(document.querySelectorAll('.tag-checkbox:checked')).map(checkbox => checkbox.value);
+        
+        const contato = {
+            nome: document.getElementById('inputNome').value,
+            nascimento: document.getElementById('inputNascimento').value,
+            email: document.getElementById('inputEmail').value,
+            cidade: document.getElementById('inputCidade').value,
+            categoria: document.getElementById('inputCategoria').value,
+            website: document.getElementById('inputSite').value,
+            tags: tagsSelecionadas // Armazenar as tags selecionadas
+        };
+        
+        createContato(contato, exibeContatos);
+        formContato.reset();
+    });
+
+    document.getElementById("btnUpdate").addEventListener('click', function () {
+        const tagsSelecionadas = Array.from(document.querySelectorAll('.tag-checkbox:checked')).map(checkbox => checkbox.value);
+        
+        const contato = {
+            nome: document.getElementById('inputNome').value,
+            nascimento: document.getElementById('inputNascimento').value,
+            email: document.getElementById('inputEmail').value,
+            cidade: document.getElementById('inputCidade').value,
+            categoria: document.getElementById('inputCategoria').value,
+            website: document.getElementById('inputSite').value,
+            tags: tagsSelecionadas // Armazenar as tags selecionadas
+        };
+        
+        updateContato(editingId, contato, exibeContatos);
+        formContato.reset();
+        editingId = null;
+        document.getElementById('btnInsert').style.display = 'inline-block';
+        document.getElementById('btnUpdate').style.display = 'none';
+        document.getElementById('btnDelete').style.display = 'none';
+    });
+
+    document.getElementById("btnClear").addEventListener('click', function () {
+        formContato.reset();
+        editingId = null;
+        document.getElementById('btnInsert').style.display = 'inline-block';
+        document.getElementById('btnUpdate').style.display = 'none';
+        document.getElementById('btnDelete').style.display = 'none';
+    });
+
+    exibeContatos();
+}
+
+document.getElementById('tag-toggle').addEventListener('click', function() {
+    const tagList = document.getElementById('tag-list');
+    tagList.style.display = tagList.style.display === 'none' ? 'block' : 'none';
+});

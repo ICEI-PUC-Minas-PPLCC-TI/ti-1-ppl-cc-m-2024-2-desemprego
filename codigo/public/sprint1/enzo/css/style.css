@@ -1,135 +1,86 @@
 body {
-  background-color: lightblue;
-}
-label {
-  font-weight: bolder;
-}
-::placeholder {
-  color: lightskyblue !important;
-  opacity: 3;
-}
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-  color:  lightskyblue !important;
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  color:  lightskyblue !important;
-  opacity:  3;
-}
-h1 {
-   padding-top: 20px;
-   text-align: center;
-}
-#grid-contatos{
-   margin-top: 17px;
-}
-#msg {
-   height: 60px;
-}
-#grid-contatos tbody {
-   cursor: pointer;
-}
-.container {
-  max-width: 600px;
-  margin: 0 auto;
+  background-color: #acd5ff;
   padding: 20px;
-  border-radius: 8px;
-  background-color: #fcf4c5;
-  min-height: 100vh; 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
-.form-group input,
-.form-group select {
-  width: 100%;
-}
-
-.form-group:last-child input[type="button"] {
-  width: 120px;
-  margin: 5px;
-}
-
-.form-group:last-child a input[type="button"] {
-  width: 120px;
-  margin: 5px;
-}
-
-.form-group:last-child {
+h1 {
   text-align: center;
-}
-
-.form-group:last-child a input[type="button"] {
-  width: 240px; 
-  background-color: purple;
-  border: 1px solid black;
-  color: white;
-  margin: 5px;
-}
-
-#grid-contatos {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
+  margin-bottom: 20px;
 }
 
 .tag-dropdown {
   position: relative;
-}
-
-.tag-list {
-  display: none; /* Esconde a lista de tags inicialmente */
-  border: 1px solid #ccc;
-  background-color: white;
-  position: absolute;
-  z-index: 1;
-  max-height: 150px;
-  overflow-y: auto;
-  padding: 10px;
-  width: 100%;
-}
-
-.tag-list label {
-  display: block; /* Cada tag em uma nova linha */
-}
-
-.tag-list.show {
-  display: block; /* Mostra a lista quando adiciona a classe 'show' */
+  display: inline-block;
+  margin-bottom: 10px;
 }
 
 .tag-button {
-  background-color: #42c1bf; /* Cor do botão de seleção de tags */
-  color: black;
-  border: 2px solid black;
+  background-color: #ff005d;
+  color: white;
   border: none;
-  border-radius: 17px;
-  width: 200px;
+  border-radius: 5px;
   padding: 10px;
+  margin-top: 10px;
   cursor: pointer;
-  margin-top: 10px; /* Espaçamento acima do botão de tags */
+  text-align: center; /* Alinha o texto no centro */
 }
 
-.tags {
-  margin-top: 15px; /* Espaço acima das tags */
+#grid-contatos{
+  margin-top: 20px;
+  border-radius: 15px;
 }
 
-.tags label {
-  display: flex; /* Alinhamento flexível */
-  align-items: center; /* Centraliza verticalmente */
-  margin-right: 15px; /* Espaçamento entre as tags */
-  cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+.btn-pink {
+  background-color: #f52772;
+  margin-top: 10px;
+  color: white;
 }
 
-.tags input[type="checkbox"] {
-  margin-right: 5px; /* Espaçamento entre o checkbox e o texto */
-  width: 20px; /* Largura do checkbox */
-  height: 20px; /* Altura do checkbox */
+.btn-pink:hover {
+  background-color: #b82a5e; /* Nova cor ao passar o mouse */
+  color: white;
 }
 
-/* Estilo adicional para os checkboxes */
-.tags input[type="checkbox"] {
-  accent-color: purple; /* Cor do checkbox */
+.tag-list {
+  display: none;
+  position: absolute;
+  background-color: pink;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  z-index: 1;
+  width: 300px; /* Largura da lista de tags */
 }
+
+.tag-dropdown:hover .tag-list {
+  display: block; /* Exibe a lista de tags ao passar o mouse */
+}
+
+.tag-list label {
+  display: block;
+  align-items: center; /* Alinha os itens ao centro verticalmente */
+  margin-bottom: 5px;
+}
+
+.tag-list input[type="checkbox"] {
+  margin-right: 10px; /* Espaço entre a caixa de seleção e o texto */
+}
+
+/* Exibe a lista de tags ao clicar no botão */
+.tag-dropdown .tag-list {
+  display: none; /* Mantém a lista oculta por padrão */
+}
+
+.tag-button:focus + .tag-list,
+.tag-button:active + .tag-list {
+  display: block; /* Exibe a lista de tags ao clicar no botão */
+}
+
+#btnBuscar {
+  background-color: purple; /* Cor de fundo roxa */
+  color: white; /* Cor do texto branco para contraste */
+  border: none; /* Remove borda padrão */
+  border-radius: 5px; /* Bordas arredondadas */
+  cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+}
+
