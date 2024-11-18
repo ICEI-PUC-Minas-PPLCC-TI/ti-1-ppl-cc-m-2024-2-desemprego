@@ -1,0 +1,86 @@
+body {
+  background-color: #acd5ff;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tag-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.tag-button {
+  background-color: #ff005d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  text-align: center; /* Alinha o texto no centro */
+}
+
+#grid-contatos{
+  margin-top: 20px;
+  border-radius: 15px;
+}
+
+.btn-pink {
+  background-color: #f52772;
+  margin-top: 10px;
+  color: white;
+}
+
+.btn-pink:hover {
+  background-color: #b82a5e; /* Nova cor ao passar o mouse */
+  color: white;
+}
+
+.tag-list {
+  display: none;
+  position: absolute;
+  background-color: pink;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  z-index: 1;
+  width: 300px; /* Largura da lista de tags */
+}
+
+.tag-dropdown:hover .tag-list {
+  display: block; /* Exibe a lista de tags ao passar o mouse */
+}
+
+.tag-list label {
+  display: block;
+  align-items: center; /* Alinha os itens ao centro verticalmente */
+  margin-bottom: 5px;
+}
+
+.tag-list input[type="checkbox"] {
+  margin-right: 10px; /* Espaço entre a caixa de seleção e o texto */
+}
+
+/* Exibe a lista de tags ao clicar no botão */
+.tag-dropdown .tag-list {
+  display: none; /* Mantém a lista oculta por padrão */
+}
+
+.tag-button:focus + .tag-list,
+.tag-button:active + .tag-list {
+  display: block; /* Exibe a lista de tags ao clicar no botão */
+}
+
+#btnBuscar {
+  background-color: purple; /* Cor de fundo roxa */
+  color: white; /* Cor do texto branco para contraste */
+  border: none; /* Remove borda padrão */
+  border-radius: 5px; /* Bordas arredondadas */
+  cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+}
+
