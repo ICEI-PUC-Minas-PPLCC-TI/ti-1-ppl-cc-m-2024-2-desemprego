@@ -1,25 +1,32 @@
 {
   "usuarios": [
     {
-      "id": 1,
-      "login": "admin",
-      "senha": "123",
-      "nome": "Administrador do Sistema",
-      "email": "admin@abc.com"
+      "nome": "Eduardo Salvos",
+      "nascimento": "1909-12-11",
+      "email": "dududuartes@yahoo.com",
+      "cidade": "cidadininia",
+      "categoria": "empregador",
+      "website": "omaga.com",
+      "tags": [
+        "trabalho-bracal",
+        "extrovertido"
+      ],
+      "id": "1"
     },
     {
-      "id": 2,
-      "login": "user",
-      "senha": "123",
-      "nome": "Usuario Comum",
-      "email": "user@abc.com"
-    },
-    {
-      "login": "rommel",
-      "senha": "123",
-      "nome": "Rommel",
-      "email": "rommel@gmail.com",
-      "id": 3
+      "id": "2",
+      "nome": "Deus Ednaldo Pereira",
+      "nascimento": "0001-01-01",
+      "email": "deusdosdeuses@hotmail.com",
+      "cidade": "céu",
+      "categoria": "empregador",
+      "website": "igreja.com",
+      "tags": [
+        "trabalho-bracal",
+        "trabalho-escritorio",
+        "extrovertido",
+        "introvertido"
+      ]
     }
   ]
 }
