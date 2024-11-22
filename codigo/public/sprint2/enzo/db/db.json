@@ -30,21 +30,8 @@
     }
   ],
   "vagas": [
-    {
-      "id": 1,
-      "titulo": "Desenvolvedor Back-End",
-      "descricao": "Trabalhar com sistemas robustos e escaláveis.",
-      "requisitos": "Node.js, Docker, PostgreSQL.",
-      "local": "Remoto",
-      "tags": ["trabalho-escritorio", "introvertido"]
-    },
-    {
-      "id": 2,
-      "titulo": "Montador Industrial",
-      "descricao": "Montar peças para linhas de produção.",
-      "requisitos": "Experiência com montagens.",
-      "local": "Curitiba",
-      "tags": ["trabalho-bracal"]
-    }
+    { "id": 1, "titulo": "Desenvolvedor Back-End", "local": "Remoto", "tags": ["remoto", "escritório"] },
+    { "id": 2, "titulo": "Montador Industrial", "local": "Curitiba", "tags": ["braçal", "presencial"] },
+    { "id": 3, "titulo": "Gerente de Projetos", "local": "São Paulo", "tags": ["escritório"] }
   ]
 }
