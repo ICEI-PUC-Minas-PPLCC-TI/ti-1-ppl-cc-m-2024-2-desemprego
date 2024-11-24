@@ -1,68 +1,81 @@
 const apiUrl = 'http://localhost:3000/vagas';
-let chart;
+let vagas = []; // Array para armazenar os dados carregados
 
-// Função de inicialização
-function init() {
-    carregarVagas();
-    montarGrafico();
-    document.getElementById('form-vaga').addEventListener('submit', criarVaga);
+function displayMessage(mensagem) {
+    const msg = document.getElementById('msg');
+    msg.innerHTML = mensagem;
+    msg.style.display = 'block';
+    setTimeout(() => msg.style.display = 'none', 5000);
 }
 
-// Carrega vagas do servidor
+// Carregar dados do JSON Server
 function carregarVagas() {
     fetch(apiUrl)
         .then(response => response.json())
-        .then(vagas => {
-            const listaVagas = document.getElementById('lista-vagas');
-            listaVagas.innerHTML = vagas.map(vaga => `
-                <li class="list-group-item">
-                    <strong>${vaga.titulo}</strong> - ${vaga.local}
-                    <br>
-                    <small>Tags: ${vaga.tags.join(', ')}</small>
-                </li>`).join('');
+        .then(data => {
+            vagas = data;
+            exibirVagas(vagas);
+            atualizarGrafico(vagas);
+        })
+        .catch(error => {
+            console.error('Erro ao carregar vagas:', error);
+            displayMessage("Erro ao carregar vagas.");
         });
 }
 
-// Cria uma nova vaga
-function criarVaga(event) {
-    event.preventDefault();
-    const titulo = document.getElementById('titulo').value;
-    const local = document.getElementById('local').value;
-    const tags = document.getElementById('tags').value.split(',').map(tag => tag.trim());
+// Exibir vagas na lista
+function exibirVagas(vagas) {
+    const lista = document.getElementById('listaVagas');
+    lista.innerHTML = '';
 
-    const vaga = { titulo, local, tags };
-    fetch(apiUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(vaga)
-    }).then(() => {
-        carregarVagas();
-        montarGrafico();
+    vagas.forEach(vaga => {
+        const li = document.createElement('li');
+        li.className = 'list-group-item';
+        li.innerHTML = `
+            <strong>${vaga.titulo}</strong>
+            <br>
+            <span>${vaga.local}</span> - <span>${vaga.categoria}</span>
+        `;
+        lista.appendChild(li);
     });
 }
 
-// Monta gráfico com Chart.js
-function montarGrafico() {
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(vagas => {
-            const locais = vagas.map(v => v.local);
-            const contagem = locais.reduce((acc, local) => {
-                acc[local] = (acc[local] || 0) + 1;
-                return acc;
-            }, {});
+// Atualizar gráfico com a distribuição por local
+function atualizarGrafico(vagas) {
+    const ctx = document.getElementById('graficoVagas').getContext('2d');
+    const locais = [...new Set(vagas.map(vaga => vaga.local))]; // Locais únicos
+    const contagem = locais.map(local => vagas.filter(vaga => vaga.local === local).length);
 
-            if (chart) chart.destroy();
-            chart = new Chart(document.getElementById('grafico'), {
-                type: 'bar',
-                data: {
-                    labels: Object.keys(contagem),
-                    datasets: [{
-                        label: 'Vagas por Local',
-                        data: Object.values(contagem),
-                        backgroundColor: ['#007bff', '#28a745', '#ffc107', '#dc3545']
-                    }]
-                }
-            });
-        });
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: locais,
+            datasets: [{
+                label: 'Número de Vagas',
+                data: contagem,
+                backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false }
+            }
+        }
+    });
+}
+
+// Filtrar vagas por categoria
+function filtrarVagas() {
+    const categoria = document.getElementById('filterCategoria').value;
+    const vagasFiltradas = categoria ? vagas.filter(vaga => vaga.categoria === categoria) : vagas;
+    exibirVagas(vagasFiltradas);
+    atualizarGrafico(vagasFiltradas);
+}
+
+// Inicializar a aplicação
+function init() {
+    carregarVagas();
 }
