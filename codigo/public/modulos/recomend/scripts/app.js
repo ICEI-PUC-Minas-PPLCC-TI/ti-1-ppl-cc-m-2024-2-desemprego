@@ -53,8 +53,8 @@ function atualizarGrafico(vagas) {
             datasets: [{
                 label: 'Número de Vagas',
                 data: contagem,
-                backgroundColor: 'rgba(75, 192, 192, 0.6)',
-                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(250, 110, 110, 0.6)',
+                borderColor: 'rgba(252, 71, 71, 1)',
                 borderWidth: 1
             }]
         },

@@ -1,7 +1,8 @@
 {
   "usuarios": [
     {
-      "nome": "Eduardo Salvos",
+      "id": "1",
+      "nome": "Eduardo Santos",
       "nascimento": "1909-12-11",
       "email": "dududuartes@yahoo.com",
       "cidade": "cidadininia",
@@ -10,23 +11,48 @@
       "tags": [
         "trabalho-bracal",
         "extrovertido"
-      ],
-      "id": "1"
+      ]
     },
     {
       "id": "2",
-      "nome": "Deus Ednaldo Pereira",
+      "nome": "Ednaldo Pereira",
       "nascimento": "0001-01-01",
       "email": "deusdosdeuses@hotmail.com",
       "cidade": "céu",
       "categoria": "empregador",
-      "website": "igreja.com",
+      "website": "igrejaednaldo.com",
       "tags": [
         "trabalho-bracal",
         "trabalho-escritorio",
         "extrovertido",
         "introvertido"
       ]
+    }
+  ],
+  "vagas": [
+    {
+      "id": 1,
+      "titulo": "Desenvolvedor Front-End",
+      "local": "São Paulo",
+      "categoria": "tecnologia",
+      "descricao": "Atuar no desenvolvimento de interfaces web utilizando React.js.",
+      "salario": "R$ 5.000,00"
+    },
+    {
+      "id": 2,
+      "titulo": "Professor de Matemática",
+      "local": "Rio de Janeiro",
+      "categoria": "educacao",
+      "descricao": "Ministrar aulas para o ensino médio, com foco em preparação para vestibulares.",
+      "salario": "R$ 3.500,00"
+    },
+    {
+      "id": 3,
+      "titulo": "Enfermeiro",
+      "local": "Curitiba",
+      "categoria": "saude",
+      "descricao": "Prestar assistência direta ao paciente em ambiente hospitalar.",
+      "salario": "R$ 4.200,00"
     }
   ]
 }
