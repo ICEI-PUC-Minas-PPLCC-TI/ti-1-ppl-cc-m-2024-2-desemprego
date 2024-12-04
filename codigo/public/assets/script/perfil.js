@@ -83,9 +83,9 @@ function exibeContatos() {
                     <td>${contato.nome}</td>
                     <td>${contato.nascimento}</td>
                     <td>${contato.email}</td>
+                    <td>${contato.senha}</td>
                     <td>${contato.cidade}</td>
                     <td>${contato.categoria}</td>
-                    <td>${contato.website}</td>
                     <td>${contato.tags ? contato.tags.join(", ") : ""}</td>
                     <td>
                         <button class="btn btn-warning btn-sm" onclick="prepareEdit(${contato.id})">Editar</button>
@@ -107,7 +107,7 @@ function prepareEdit(id) {
             document.getElementById('inputEmail').value = contato.email;
             document.getElementById('inputCidade').value = contato.cidade;
             document.getElementById('inputCategoria').value = contato.categoria;
-            document.getElementById('inputSite').value = contato.website;
+            document.getElementById('inputSenha').value = contato.senha;
 
             const checkboxes = document.querySelectorAll('.tag-checkbox');
             checkboxes.forEach(checkbox => {
@@ -136,7 +136,7 @@ function init() {
             email: document.getElementById('inputEmail').value,
             cidade: document.getElementById('inputCidade').value,
             categoria: document.getElementById('inputCategoria').value,
-            website: document.getElementById('inputSite').value,
+            senha: document.getElementById('inputSenha').value,
             tags: tagsSelecionadas
         };
         
@@ -153,7 +153,7 @@ function init() {
             email: document.getElementById('inputEmail').value,
             cidade: document.getElementById('inputCidade').value,
             categoria: document.getElementById('inputCategoria').value,
-            website: document.getElementById('inputSite').value,
+            senha: document.getElementById('inputSenha').value,
             tags: tagsSelecionadas
         };
         

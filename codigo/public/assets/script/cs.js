@@ -35,7 +35,7 @@ function cadastrarUsuario(nome, email, nascimento, cidade, categoria) {
     .then(response => response.json())
     .then(data => {
       alert('Cadastro realizado com sucesso!');
-      window.location.href = 'login.html'; // Redireciona para a página de login
+      window.location.href = 'index.html'; // Redireciona para a página de login
     })
     .catch(error => {
       console.error('Erro ao cadastrar usuário:', error);
