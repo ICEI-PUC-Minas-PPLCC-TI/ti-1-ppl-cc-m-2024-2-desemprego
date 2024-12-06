@@ -124,6 +124,36 @@ function prepareEdit(id) {
         });
 }
 
+fetch('http://localhost:3000/usuarios/1') // Substitua o ID pelo usuário logado
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('inputNome').value = data.nome || '';
+        document.getElementById('inputNascimento').value = data.nascimento || '';
+        document.getElementById('inputEmail').value = data.email || '';
+        document.getElementById('inputSenha').value = data.senha || '';
+        document.getElementById('inputCidade').value = data.cidade || '';
+        document.getElementById('inputCategoria').value = data.categoria || '';
+    })
+    .catch(error => console.error('Erro ao carregar dados do usuário:', error));
+
+
+function preencherCamposUsuario() {
+    const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+
+    if (usuarioLogado) {
+        document.getElementById('inputNome').value = usuarioLogado.nome || '';
+        document.getElementById('inputNascimento').value = usuarioLogado.nascimento || '';
+        document.getElementById('inputEmail').value = usuarioLogado.email || '';
+        document.getElementById('inputSenha').value = usuarioLogado.senha || ''; // Cuidado ao exibir senhas!
+        document.getElementById('inputCidade').value = usuarioLogado.cidade || '';
+        document.getElementById('inputCategoria').value = usuarioLogado.categoria || '';
+    }
+}
+
+// Executa a função ao carregar a página
+window.onload = preencherCamposUsuario;
+
+
 function init() {
     const formContato = document.getElementById('form-contato');
 

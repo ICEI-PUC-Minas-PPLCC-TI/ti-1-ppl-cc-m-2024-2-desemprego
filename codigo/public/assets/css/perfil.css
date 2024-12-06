@@ -1,86 +1,112 @@
 body {
-  background-color: #acd5ff;
-  padding: 20px;
+    background: linear-gradient(135deg, #acd5ff, #ff7a75);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
+nav {
+    background-color: #f9e696;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
 }
 
-.tag-dropdown {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 10px;
+.menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.tag-button {
-  background-color: #ff005d;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  margin-top: 10px;
-  cursor: pointer;
-  text-align: center; /* Alinha o texto no centro */
+.menu li {
+    margin: 0 20px;
 }
 
-#grid-contatos{
-  margin-top: 20px;
-  border-radius: 15px;
+.menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: color 0.3s, background-color 0.3s, transform 0.2s;
+    padding: 10px 15px;
+    border-radius: 8px;
 }
 
-.btn-pink {
-  background-color: #f52772;
-  margin-top: 10px;
-  color: white;
+.menu a:hover {
+    color: white;
+    background-color: #fbb128;
+    transform: scale(1.05);
 }
 
-.btn-pink:hover {
-  background-color: #b82a5e; /* Nova cor ao passar o mouse */
-  color: white;
+.container {
+    flex: 1;
+    margin: 20px auto;
+    max-width: 800px;
 }
 
-.tag-list {
-  display: none;
-  position: absolute;
-  background-color: pink;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 10px;
-  z-index: 1;
-  width: 300px; /* Largura da lista de tags */
+footer {
+    background-color: #f9e696;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: auto;
 }
 
-.tag-dropdown:hover .tag-list {
-  display: block; /* Exibe a lista de tags ao passar o mouse */
+footer p {
+    color: #333;
+    margin: 0;
+}
+/* Botão Buscar */
+.btn-special {
+    background-color: #6a1b9a;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-.tag-list label {
-  display: block;
-  align-items: center; /* Alinha os itens ao centro verticalmente */
-  margin-bottom: 5px;
+.btn-special:hover {
+    background-color: #8e24aa;
+    transform: scale(1.1);
 }
 
-.tag-list input[type="checkbox"] {
-  margin-right: 10px; /* Espaço entre a caixa de seleção e o texto */
+/* Botão Selecionar Tags */
+.btn-tags {
+    background-color: #ff5722;
+    color: white;
+    font-weight: bold;
+    border: none;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-/* Exibe a lista de tags ao clicar no botão */
-.tag-dropdown .tag-list {
-  display: none; /* Mantém a lista oculta por padrão */
+.btn-tags:hover {
+    background-color: #ff7043; 
+    transform: scale(1.1);
 }
 
-.tag-button:focus + .tag-list,
-.tag-button:active + .tag-list {
-  display: block; /* Exibe a lista de tags ao clicar no botão */
+/* Estilo para a seção de tags */
+#tag-list {
+    background-color: #fff3e0;
+    border: 1px solid #ffa726;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
 }
 
-#btnBuscar {
-  background-color: purple; /* Cor de fundo roxa */
-  color: white; /* Cor do texto branco para contraste */
-  border: none; /* Remove borda padrão */
-  border-radius: 5px; /* Bordas arredondadas */
-  cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+#tag-list label {
+    display: block;
+    margin-bottom: 8px;
+    color: #6a1b9a;
+    font-weight: bold;
 }
-

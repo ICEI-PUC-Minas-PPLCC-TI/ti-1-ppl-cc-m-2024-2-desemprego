@@ -1,23 +1,10 @@
-// URL da API que retorna os usuários
-const API_URL = '/usuarios';
+const API_URL = 'http://localhost:3000/usuarios';
 
-// Função para carregar os usuários da API
-function carregarUsuarios(callback) {
-  fetch(API_URL)
-    .then(response => response.json())
-    .then(data => {
-      callback(data);
-    })
-    .catch(error => {
-      console.error('Erro ao carregar os dados dos usuários', error);
-    });
-}
-
-// Função para registrar um novo usuário
-function cadastrarUsuario(nome, email, nascimento, cidade, categoria) {
+function cadastrarUsuario(nome, email, senha, nascimento, cidade, categoria) {
   const novoUsuario = {
     nome: nome,
     email: email,
+    senha: senha,
     nascimento: nascimento,
     cidade: cidade,
     categoria: categoria,
@@ -49,10 +36,10 @@ document.getElementById('cadastro-form').addEventListener('submit', function(eve
 
   const nome = document.getElementById('nome').value;
   const email = document.getElementById('email').value;
+  const senha = document.getElementById('senha').value;
   const nascimento = document.getElementById('nascimento').value;
   const cidade = document.getElementById('cidade').value;
   const categoria = document.getElementById('categoria').value;
 
-  // Chama a função para cadastrar o usuário
-  cadastrarUsuario(nome, email, nascimento, cidade, categoria);
+  cadastrarUsuario(nome, email, senha, nascimento, cidade, categoria);
 });
