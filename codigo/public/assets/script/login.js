@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000/usuarios'; // URL do JSON Server
+const API_URL = 'http://localhost:3000/usuarios';
 
 function carregarUsuarios(callback) {
   fetch(API_URL)

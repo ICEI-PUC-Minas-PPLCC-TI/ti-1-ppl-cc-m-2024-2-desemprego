@@ -4,57 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Vagas de Emprego</title>
-    <link rel="stylesheet" href="assets/css/style.css"></link>
+    <link rel="stylesheet" href="assets/css/vagas.css"></link>
 </head>
 <body>
 <nav>
-        <ul class="menu">
-            <li><a href="home.html">Página Inicial</a></li>
-            <li><a href="perfil.html">Gerenciamento de Perfil</a></li>
-            <li><a href="recomend.html">Procurar Empregos</a></li>
-            <li><a href="cadastro.html">Cadastrar Vagas</a></li>
-            <li><a href="about.html">Sobre Nós</a></li>
-        </ul>
-    </nav>
-    <div class="container">
-        <header>
-            <div class="menu-icon">&#9776;</div>
-            <div class="profile-button">PERFIL</div>
-        </header>
-        <main>
-            <h1>Cadastro de vagas de emprego</h1>
-            <form id="jobForm">
-                <div class="form-group">
-                    <label for="titulo">Título:</label>
-                    <input type="text" id="titulo" name="titulo" required>
-                </div>
-                <div class="form-group">
-                    <label for="descricao">Descrição:</label>
-                    <input type="text" id="descricao" name="descricao" required>
-                </div>
-                <div class="form-group">
-                    <label for="localizacao">Localização:</label>
-                    <input type="text" id="localizacao" name="localizacao" required>
-                </div>
-                <div class="form-group">
-                    <label for="tipo-contato">Tipo de contato:</label>
-                    <input type="text" id="tipo-contato" name="tipo-contato" required>
-                </div>
-                <div class="form-group">
-                    <label for="salario">Salário:</label>
-                    <input type="text" id="salario" name="salario" required>
-                </div>
-                <div class="form-group">
-                    <label for="categoria">Categoria/Área de atuação:</label>
-                    <input type="text" id="categoria" name="categoria" required>
-                </div>
-                <div class="action-buttons">
-                    <button type="button" class="delete-button">Excluir</button>
-                    <button type="submit" class="publish-button">Publicar</button>
-                </div>
-            </form>
-        </main>
-    </div>
-    <script src="assets/script/job.js"></script>
+    <ul class="menu">
+        <li><a href="home.html">Página Inicial</a></li>
+        <li><a href="perfil.html">Gerenciamento de Perfil</a></li>
+        <li><a href="recomend.html">Procurar Empregos</a></li>
+        <li><a href="registrovagas.html">Cadastrar Vagas</a></li>
+        <li><a href="about.html">Sobre Nós</a></li>
+    </ul>
+</nav>
+<div class="container">
+    <main>
+        <h1>Cadastro de Vagas de Emprego</h1>
+        <p>Adicione aqui uma vaga e confira todas as disponíveis na seção "Procurar Empregos".</p>
+        <form id="jobForm">
+            <div class="form-group">
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" required>
+            </div>
+            <div class="form-group">
+                <label for="descricao">Descrição:</label>
+                <input type="text" id="descricao" name="descricao" required>
+            </div>
+            <div class="form-group">
+                <label for="localizacao">Localização:</label>
+                <input type="text" id="local" name="local" required>
+            </div>
+            <div class="form-group">
+                <label for="salario">Salário:</label>
+                <input type="text" id="salario" name="salario" required>
+            </div>
+            <div class="form-group">
+                <label for="categoria">Categoria/Área de atuação:</label>
+                <input type="text" id="categoria" name="categoria" required>
+            </div>
+            <div class="action-buttons">
+                <button type="button" class="delete-button">Excluir</button>
+                <button type="submit" class="publish-button">Publicar</button>
+            </div>
+        </form>
+    </main>
+</div>
+<footer>
+    <p>&copy; 2024 Vaga Certa. Todos os direitos reservados.</p>
+</footer>
+<script src="assets/script/job.js"></script>
 </body>
 </html>

@@ -95,6 +95,11 @@ function exibeContatos() {
         });
     });
 }
+function confirmDelete(id) {
+    if (confirm('Tem certeza que deseja excluir este contato?')) {
+        deleteContato(id, exibeContatos);
+    }
+}
 
 function prepareEdit(id) {
     editingId = id;
@@ -210,3 +215,8 @@ document.getElementById('tag-toggle').addEventListener('click', () => {
     const tagList = document.getElementById('tag-list');
     tagList.style.display = tagList.style.display === 'none' ? 'block' : 'none';
 });
+
+fetch('http://localhost:3000/usuarios')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Erro ao buscar dados:', error));
