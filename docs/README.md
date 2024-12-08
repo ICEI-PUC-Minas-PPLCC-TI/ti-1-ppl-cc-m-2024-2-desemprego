@@ -2,13 +2,11 @@
 
 Informações básicas do projeto.
 
-* **Projeto:** [NOME DO PROJETO]
-* **Repositório GitHub:** [LINK PARA O REPOSITÓRIO NO GITHUB]
+* **Projeto:** Vaga Certa
+* **Repositório GitHub:** https://github.com/ICEI-PUC-Minas-PPLCC-TI/ti-1-ppl-cc-m-2024-2-desemprego.git
 * **Membros da equipe:**
 
-  * [Fulano](https://github.com/fulano) ⚠️ EXEMPLO ⚠️
-  * [Beltrano](https://github.com/beltrano) ⚠️ EXEMPLO ⚠️
-  * [Cicrano](https://github.com/cicrano) ⚠️ EXEMPLO ⚠️
+  * Enzo Moraes Martini (https://github.com/EnzoMartini3)
 
 A documentação do projeto é estruturada da seguinte forma:
 
@@ -24,11 +22,11 @@ A documentação do projeto é estruturada da seguinte forma:
 
 # Contexto
 
-Detalhes sobre o espaço de problema, os objetivos do projeto, sua justificativa e público-alvo.
+O desemprego é um problema global que impacta tanto as economias quanto os indivíduos. No Brasil, esse problema é ainda mais agravante, e por isso desejamos oferecer ao público ferramejtas para melhorar o cenário da empregabilidade brasileira, diminuindo não apenas a desigualdade social mas melhorando o cenário de muitas pessoas afetadas pela pobreza ou crises econômicas, seja no presente ou futuro. Nosso principal público é a classe mais baixa que buscam emprego para sustentar suas famílias, mas também oferecemos suportes a empregadores, de forma a facilitar a conexão entre ambos.
 
 ## Problema
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
+**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**ç
 
 > ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
 >
