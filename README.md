@@ -4,13 +4,7 @@
 Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
 
 ## Alunos integrantes da equipe
-* Matheus Magalhães Rossi.
 * Enzo Moraes Martini.
-
-Integrantes Inativos:
-* Filipe Carvalho Barcelos.
-* Gabriel furst.
-* Matheus Ricardo Morais de Souza.
 
 ## Professores responsáveis
 
