@@ -137,13 +137,13 @@ body {
   }
   
   .delete-button {
-    background-color: #dd5d3d;
-    color: white;
+    background-color: rgb(252, 231, 3);
+    color: black;
     transition: background-color 0.3s;
   }
   
   .delete-button:hover {
-    background-color: #bb4a3d;
+    background-color: #ffba0b;
   }
   
   .publish-button {

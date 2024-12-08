@@ -110,3 +110,10 @@ footer p {
     color: #6a1b9a;
     font-weight: bold;
 }
+
+.table {
+    
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 0;
+}
