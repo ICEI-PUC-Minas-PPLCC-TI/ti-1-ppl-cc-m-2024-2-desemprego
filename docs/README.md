@@ -311,85 +311,82 @@ Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema
 >
 > Inclua, para cada funcionalidade, itens como: (1) titulos e descrição da funcionalidade; (2) Estrutura de dados associada; (3) o detalhe sobre as instruções de acesso e uso.
 
-## Estruturas de Dados
-
-Descrição das estruturas de dados utilizadas na solução com exemplos no formato JSON.Info
-
-##### Estrutura de Dados - Contatos   ⚠️ EXEMPLO ⚠️
-
-Contatos da aplicação
+##### Estrutura de Dados - Vagas
 
 ```json
   {
-    "id": 1,
-    "nome": "Leanne Graham",
-    "cidade": "Belo Horizonte",
-    "categoria": "amigos",
-    "email": "Sincere@april.biz",
-    "telefone": "1-770-736-8031",
-    "website": "hildegard.org"
+"vagas": [
+    {
+      "id": "1",
+      "titulo": "Desenvolvedor Front-End",
+      "local": "São Paulo",
+      "categoria": "tecnologia",
+      "descricao": "Atuar no desenvolvimento de interfaces web utilizando React.js.",
+      "salario": "R$ 5.000,00"
+    },
+    {
+      "id": "2",
+      "titulo": "Professor de Matemática",
+      "local": "Rio de Janeiro",
+      "categoria": "educacao",
+      "descricao": "Ministrar aulas para o ensino médio, com foco em preparação para vestibulares.",
+      "salario": "R$ 3.500,00"
+    },
+    {
+      "id": "3",
+      "titulo": "Enfermeiro",
+      "local": "Curitiba",
+      "categoria": "saude",
+      "descricao": "Prestar assistência direta ao paciente em ambiente hospitalar.",
+      "salario": "R$ 4.200,00"
+    },
+  ]
   }
   
 ```
 
-##### Estrutura de Dados - Usuários  ⚠️ EXEMPLO ⚠️
-
-Registro dos usuários do sistema utilizados para login e para o perfil do sistema
+##### Estrutura de Dados - Usuários 
 
 ```json
   {
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    email: "admin@abc.com",
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    login: "admin",
-    nome: "Administrador do Sistema",
-    senha: "123"
-  }
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "José Alfredo",
+      "email": "alfredo@hotmail.com",
+      "senha": "123",
+      "nascimento": "1999-02-22",
+      "cidade": "Curitiba",
+      "categoria": "desempregado",
+      "tags": []
+    },
+    {
+      "id": "2",
+      "nome": "Roberto Almeida",
+      "email": "roberto@hotmail.com",
+      "senha": "123",
+      "nascimento": "2002-02-22",
+      "cidade": "Curitiba",
+      "categoria": "desempregado",
+      "tags": []
+    },
+    {
+      "id": "3",
+      "nome": "Roberto Santos",
+      "email": "ro@hotmail.com",
+      "senha": "124",
+      "nascimento": "2002-02-22",
+      "cidade": "Curitiba",
+      "categoria": "desempregado",
+      "tags": []
+    }
+  ],
+}
 ```
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente as estruturas de dados utilizadas na solução tanto para dados utilizados na essência da aplicação quanto outras estruturas que foram criadas para algum tipo de configuração
->
-> Nomeie a estrutura, coloque uma descrição sucinta e apresente um exemplo em formato JSON.
->
-> **Orientações:**
->
-> * [JSON Introduction](https://www.w3schools.com/js/js_json_intro.asp)
-> * [Trabalhando com JSON - Aprendendo desenvolvimento web | MDN](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects/JSON)
-
-## Módulos e APIs
-
-Esta seção apresenta os módulos e APIs utilizados na solução
-
-**Images**:
-
-* Unsplash - [https://unsplash.com/](https://unsplash.com/) ⚠️ EXEMPLO ⚠️
-
-**Fonts:**
-
-* Icons Font Face - [https://fontawesome.com/](https://fontawesome.com/) ⚠️ EXEMPLO ⚠️
 
 **Scripts:**
 
-* jQuery - [http://www.jquery.com/](http://www.jquery.com/) ⚠️ EXEMPLO ⚠️
-* Bootstrap 4 - [http://getbootstrap.com/](http://getbootstrap.com/) ⚠️ EXEMPLO ⚠️
+* Bootstrap  - [http://getbootstrap.com/](http://getbootstrap.com/) 
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente os módulos e APIs utilizados no desenvolvimento da solução. Inclua itens como: (1) Frameworks, bibliotecas, módulos, etc. utilizados no desenvolvimento da solução; (2) APIs utilizadas para acesso a dados, serviços, etc.
 
-# Referências
-
-As referências utilizadas no trabalho foram:
-
-* SOBRENOME, Nome do autor. Título da obra. 8. ed. Cidade: Editora, 2000. 287 p ⚠️ EXEMPLO ⚠️
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
->
-> **Orientações**:
->
-> - [Formato ABNT](https://www.normastecnicas.com/abnt/trabalhos-academicos/referencias/)
-> - [Referências Bibliográficas da ABNT](https://comunidade.rockcontent.com/referencia-bibliografica-abnt/)
